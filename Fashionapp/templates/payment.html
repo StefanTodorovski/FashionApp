@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row" style="text-align: center; justify-content: center">
+            <p id="gd">
+            <h2>Payment</h2></p>
+            <hr class="w-100" style="height: 5px">
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col" style="text-align: left">
+                <p style="margin-bottom: -1px">Name on Card</p>
+                <input class="form-control me-2" type="search" name="query"
+                       aria-label="Search"
+                       style="width: 330px; border: 2px solid dimgrey">
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col" style="text-align: left">
+                <p style="margin-bottom: -1px">Card Number</p>
+                <input class="form-control me-2" type="search" name="query"
+                       aria-label="Search"
+                       style="width: 330px; border: 2px solid dimgrey">
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col" style="text-align: left">
+                <p style="margin-bottom: -1px">Billing Address</p>
+                <input class="form-control me-2" type="search" name="query"
+                       aria-label="Search"
+                       style="width: 330px; border: 2px solid dimgrey">
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col">
+                <input class="form-control me-2" type="search" name="query" placeholder="CVC"
+                       aria-label="Search"
+                       style="width: 240px; border: 2px solid dimgrey">
+            </div>
+            <div class="col">
+                <input class="form-control me-2" type="search" name="query" placeholder="Expiration"
+                       aria-label="Search"
+                       style=" width: 240px ;border: 2px solid dimgrey">
+            </div>
+            <div class="col">
+                <input class="form-control me-2" type="search" name="query" placeholder="Year"
+                       aria-label="Search"
+                       style="width: 240px ;border: 2px solid dimgrey">
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row" style="text-align: center; justify-content: center">
+            <hr class="w-100" style="height: 5px">
+        </div>
+    </div>
+
+    {% load cart_extras %}
+    <div class="container mt-1">
+        <div class="row" style="text-align: right; justify-content: right">
+            <p id="dg">Total Amount: ${{ cart|total_amount }}</p>
+            <a href="{% url 'payment' %}" class="btn-lg btn-light" style=" width: 100px;border: 3px solid black ; text-align: center" onclick="showPopup()">Pay</a>
+        </div>
+    </div>
+
+    <script>
+        function showPopup() {
+            alert("Payment successful!");
+        }
+    </script>
+{% endblock %}
